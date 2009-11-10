@@ -1,0 +1,19 @@
+<% form_for(@ticket) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+  <%= f.label :subject %>
+  <%= f.text_field :subject %>
+  </p>
+  <p>
+  <%= f.label :body %>
+  <%= f.text_area :body %>
+  </p>
+  <p>
+  <%= f.label :status_id %>
+  <%= f.collection_select(:status_id, Status.all, :id, :name, {:prompt => true}) %>
+  </p>
+  <p>
+  <%= f.submit button_text %>
+  </p>
+<% end %>

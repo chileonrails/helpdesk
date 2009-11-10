@@ -1,0 +1,7 @@
+<p>
+  <b>Body:</b>
+  <%= @comment.body %>
+</p>
+
+<%= link_to 'Edit', [:edit, @ticket, @comment] %> |
+<%= link_to 'Back', ticket_comments_path(@ticket) %>

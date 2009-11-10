@@ -1,0 +1,22 @@
+<%= link_to 'Back', tickets_path %>
+
+<h1>Listing comments</h1>
+
+<table>
+  <tr>
+    <th>Body</th>
+  </tr>
+
+<% @comments.each do |comment| %>
+  <tr>
+    <td><%= comment.body %></td>
+    <td><%= link_to 'Show', [@ticket, comment] %></td>
+    <td><%= link_to 'Edit', [:edit, @ticket, comment] %></td>
+    <td><%= link_to 'Destroy', [@ticket, comment], :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New comment', new_ticket_comment_path(@ticket) %>

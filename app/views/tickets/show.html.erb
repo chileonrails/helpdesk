@@ -1,0 +1,19 @@
+<p>
+  <b>Subject:</b>
+  <%=h @ticket.subject %>
+</p>
+
+<p>
+  <b>Body:</b>
+  <%=h @ticket.body %>
+</p>
+
+<p>
+  <b>Status:</b>
+  <%=h @ticket.status.name %>
+</p>
+
+
+<%= link_to 'Comments', ticket_comments_path(@ticket) %> |
+<%= link_to 'Edit', edit_ticket_path(@ticket) %> |
+<%= link_to 'Back', tickets_path %>
