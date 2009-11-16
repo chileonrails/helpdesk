@@ -1,16 +1,16 @@
 <p>
-  <b>Subject:</b>
-  <%=h @ticket.subject %>
+<strong>Subject:</strong>
+<%= @ticket.subject %>
 </p>
 
 <p>
-  <b>Body:</b>
-  <%=h @ticket.body %>
+<strong>Body:</strong>
+<%= @ticket.body %>
 </p>
 
 <p>
-  <b>Status:</b>
-  <%=h @ticket.status.name %>
+<strong>Status:</strong>
+<%= @ticket.status.name unless @ticket.status.nil? %>
 </p>
 
 
