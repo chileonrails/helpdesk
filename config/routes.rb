@@ -5,5 +5,12 @@ ActionController::Routing::Routes.draw do |map|
   end
   map.resources :statuses
 
+  map.resources :users
+  map.resources :user_sessions
+
+  map.login 'login', :controller => 'user_sessions', :action => 'new'
+  map.logout 'logout', :controller => 'user_sessions', :action => 'destroy'
+
   map.root :tickets
 end
+

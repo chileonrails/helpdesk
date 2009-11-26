@@ -1,4 +1,6 @@
 class TicketsController < ApplicationController
+  before_filter :require_user
+
   # GET /tickets
   # GET /tickets.xml
   def index
@@ -83,3 +85,4 @@ class TicketsController < ApplicationController
     end
   end
 end
+

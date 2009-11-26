@@ -1,4 +1,6 @@
 class StatusesController < ApplicationController
+  before_filter :require_user
+
   # GET /statuses
   # GET /statuses.xml
   def index
@@ -83,3 +85,4 @@ class StatusesController < ApplicationController
     end
   end
 end
+
