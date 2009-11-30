@@ -14,4 +14,12 @@ class Notifier < ActionMailer::Base
     sent_on       Time.now
     body          :root_url => root_url
   end
+
+  def password_reset_instructions(user)
+    subject       "Password Reset Instructions"
+    from          "Helpdesk Notifier <noreply@helpdesk>"
+    recipients    user.email
+    sent_on       Time.now
+    body          :change_password_url => change_password_url(user.perishable_token)
+  end
 end
