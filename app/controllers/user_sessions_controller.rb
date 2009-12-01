@@ -1,4 +1,5 @@
 class UserSessionsController < ApplicationController
+  before_filter :load_user_using_perishable_token, :only => [:change_password, :update_password]
 
   def new
     @user_session = UserSession.new
@@ -40,9 +41,22 @@ class UserSessionsController < ApplicationController
     @user.password_confirmation = params[:user][:password_confirmation]
     if @user.save
       flash[:notice] = "Password successfully updated."
-      redirect_to account_url
+      redirect_to root_url
     else
       render :action => :edit_password
+    end
+  end
+
+  private
+
+  def load_user_using_perishable_token
+    @user = User.find_using_perishable_token(params[:change_code])
+    unless @user
+      flash[:notice] = "We're sorry, but we could not locate your account. " +
+        "If you are having issues try copying and pasting the URL " +
+        "from your email into your browser or restarting the " +
+        "reset password process."
+      redirect_to root_url
     end
   end
 
